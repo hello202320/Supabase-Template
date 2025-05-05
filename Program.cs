@@ -20,6 +20,7 @@ builder.Services.AddCors(options =>
 builder.Services.AddEndpointsApiExplorer();
 var app = builder.Build();
 
+app.UseCors();
 
 
 var url = Environment.GetEnvironmentVariable("SUPABASE_URL");
