@@ -1,0 +1,43 @@
+## Build files
+bin/
+obj/
+out/
+
+## User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Visual Studio Code
+.vscode/
+
+## Rider
+.idea/
+
+## ASP.NET Secrets
+secrets.json
+
+## DotNet CLI
+.project/
+*.pidb
+
+## Logs
+*.log
+
+## Environment variables
+.env
+
+## Dependency directories
+node_modules/
+packages/
+
+## OS files
+.DS_Store
+Thumbs.db
+
+## Publish output
+*.publish/
+
+## Other config
+appsettings.Development.json
