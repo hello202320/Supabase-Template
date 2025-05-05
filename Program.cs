@@ -1,19 +1,17 @@
 using DotNetEnv;
 using Supabase;
-using Supabase.Postgrest.Models;
-using Supabase.Postgrest.Attributes;
 using MYAPI.Models;
 using MYAPI.Dtos;
 
+var builder = WebApplication.CreateBuilder(args);
 
 Env.Load();
 
-var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddOpenApi();
-
+builder.Services.AddEndpointsApiExplorer();
 var app = builder.Build();
 
-// Initialize Supabase client
+
+
 var url = Environment.GetEnvironmentVariable("SUPABASE_URL");
 var key = Environment.GetEnvironmentVariable("SUPABASE_KEY");
 
@@ -21,7 +19,6 @@ var options = new SupabaseOptions { AutoConnectRealtime = true };
 var supabase = new Supabase.Client(url, key, options);
 await supabase.InitializeAsync();
 
-// API endpoint to fetch messages
 app.MapGet("/messages", async () =>
 {
     var result = await supabase.From<Message>().Get();
@@ -35,6 +32,5 @@ app.MapGet("/messages", async () =>
 
     return Results.Ok(dtoList);
 });
-
 
 app.Run();
